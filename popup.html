@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>USC Auto Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #fff9f2, #ffe5e5);
+      padding: 20px;
+      width: 260px;
+      color: #4b0000;
+    }
+
+    h3 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 22px;
+      color: #990000;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input[type="datetime-local"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ffd699;
+      border-radius: 12px;
+      font-size: 15px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.05);
+      background: #fffaf2;
+      box-sizing: border-box;
+    }
+
+    input:hover {
+      border-color: #ffcc00;
+      box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #990000;
+      box-shadow: 0 0 10px rgba(153, 0, 0, 0.5);
+    }
+
+    .button-container {
+      position: relative;
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #990000;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+      transform: scale(1);
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background-color: #b30000;
+      transform: scale(1.03);
+      box-shadow: 0 5px 12px rgba(255, 204, 0, 0.3);
+    }
+
+    button:active {
+      transform: scale(0.96);
+      background-color: #800000;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #resetTime {
+      background-color: #800000;
+    }
+
+    #resetTime:hover {
+      background-color: #e60000;
+    }
+
+    @keyframes buttonPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
+
+    button:focus {
+      animation: buttonPulse 0.4s ease-in-out;
+    }
+
+    .instructions {
+      background: #fff5e6;
+      border-left: 5px solid #990000;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 13px;
+      margin-top: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .instructions h4 {
+      margin: 0 0 5px 0;
+      font-size: 14px;
+      color: #990000;
+    }
+
+    .instructions ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .instructions li {
+      margin-bottom: 6px;
+    }
+
+    #countdown {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      color: #990000;
+    }
+  </style>
+</head>
+<body>
+  <h3>USC Auto Register</h3>
+
+  <label for="regTime">Pick Registration Time:</label>
+  <input type="datetime-local" id="regTime">
+
+  <div class="button-container">
+    <button id="setTime">Set Registration</button>
+    <button id="resetTime" style="display:none;">Reset Registration</button>
+  </div>
+
+  <div id="countdown"></div>
+
+  <div class="instructions">
+    <h4>How It Works</h4>
+    <ul>
+      <li>Pick your <strong>registration time</strong> using the calendar.</li>
+      <li>Leave the <strong>WebReg Checkout</strong> page open.</li>
+      <li>Keep your <strong>laptop awake</strong> and <strong>Chrome open</strong>.</li>
+      <li>The extension will <strong>click Submit for you</strong> automatically.</li>
+    </ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
